@@ -72,6 +72,13 @@ export default class Relation<T: ?Model> {
     return Promise.resolve((null: any))
   }
 
+  then(
+    onfulfilled: (value: T) => void | Promise<void>,
+    onrejected?: (reason: any) => void | Promise<void>,
+  ): Promise<void> {
+    return this.fetch().then(onfulfilled, onrejected)
+  }
+
   set(record: T): void {
     this.id = record?.id
   }

@@ -113,7 +113,7 @@ describe('Relation', () => {
 
     const relation = new Relation(primary, 'mock_projects', 'project_id', { isImmutable: false })
 
-    let currentRecord = await relation.fetch()
+    let currentRecord = await relation
     expect(currentRecord).toBe(secondary)
 
     const newSecondary = await projects.create(mock => {
@@ -124,7 +124,7 @@ describe('Relation', () => {
       mock.projectId = newSecondary.id
     })
 
-    currentRecord = await relation.fetch()
+    currentRecord = await relation
     expect(currentRecord).toBe(newSecondary)
   })
   it('caches observable', () => {

@@ -93,6 +93,13 @@ export default class Query<Record: Model> {
     return isThrottled ? this._cachedCountThrottledObservable : this._cachedCountObservable
   }
 
+  then(
+    onfulfilled: (value: Record[]) => void | Promise<void>,
+    onrejected?: (reason: any) => void | Promise<void>,
+  ): Promise<void> {
+    return this.fetch().then(onfulfilled, onrejected)
+  }
+
   // Marks as deleted all records matching the query
   async markAllAsDeleted(): Promise<void> {
     const records = await this.fetch()
