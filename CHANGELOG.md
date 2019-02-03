@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - [Sync] Improved documentation for backends that can't distinguish between `created` and `updated` records
 - [Sync] Improved diagnostics / protection against edge cases
 - Fix crash on android < 5.0
+- Made `Query` and `Relation` then-able
 
 ## 0.10.0 - 2019-01-18
 
